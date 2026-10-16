@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 import os
 from langchain_groq import ChatGroq
 from langchain_core.prompts import PromptTemplate
+from langchain_ollama import ChatOllama
 
 load_dotenv()
 
@@ -28,7 +29,8 @@ def main() -> None:
     summary_prompt = PromptTemplate(input_variables=["information"], template= summary_template)
     #Alternaive
     #summary_prompt = PromptTemplate("information", summary_template)
-    llm = ChatGroq(temperature=0, model="openai/gpt-oss-120b")
+    #llm = ChatGroq(temperature=0, model="openai/gpt-oss-120b")
+    llm = ChatOllama(temperature=0, model="gemma3:1b")
     #temperature =0 : determistic 
     #temperature =1 : creative
 
@@ -43,3 +45,8 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 # uv run my-langchain-course
+
+#to hide the logs when running gemma:1b
+#pkill ollama
+#ollama serve > /dev/null 2>&1 &
+#ollama run gemma3:1b
