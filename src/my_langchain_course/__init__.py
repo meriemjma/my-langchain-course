@@ -29,8 +29,8 @@ def main() -> None:
     summary_prompt = PromptTemplate(input_variables=["information"], template= summary_template)
     #Alternaive
     #summary_prompt = PromptTemplate("information", summary_template)
-    #llm = ChatGroq(temperature=0, model="openai/gpt-oss-120b")
-    llm = ChatOllama(temperature=0, model="gemma3:1b")
+    llm = ChatGroq(temperature=0, model="openai/gpt-oss-120b")
+    #llm = ChatOllama(temperature=0, model="gemma3:1b")
     #temperature =0 : determistic 
     #temperature =1 : creative
 
